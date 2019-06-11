@@ -218,7 +218,7 @@ train.data <- rbind(taxi_Jan, taxi_Feb, taxi_March, taxi_April, taxi_May, taxi_J
 
 train.data <- train.data %>% rename(N_Taxis = n)
 
-weather <- read.csv("Weather.csv")
+weather <- read.csv("weather.csv")
 weather$DATE <- as.character(weather$DATE)
 weather$DATE <- as.Date(weather$DATE)
 
@@ -247,7 +247,7 @@ taxi_test_merge <- inner_join(taxi_test, taxi_zone, by = "LocationID")
 #Adding weekdays to the data
 taxi_test_merge$Day <- weekdays(as.Date(taxi_test_merge$DATE))
 
-weather_test <- read.csv("1574240.csv")
+weather_test <- read.csv("weather_test.csv")
 weather_test$DATE <- as.character(weather_test$DATE)
 weather_test$DATE <- as.Date(weather_test$DATE)
 
