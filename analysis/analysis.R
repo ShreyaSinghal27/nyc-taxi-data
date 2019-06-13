@@ -1,4 +1,3 @@
-taxi_data <- read.csv("yellow_tripdata_2015-08.csv")
 library(lubridate)
 library(dplyr)
 library(ggmap)
@@ -143,17 +142,7 @@ library(ggmap)
 library(leaflet)
 library(ggplot2)
 
-#COMMON FILES
-taxi_zone <- read.csv("taxi_zone_lookup.csv")
-
-#DATA - TAXI
-taxi_jan <- read.csv("yellow_tripdata_2018-01.csv")
-taxi_feb <- read.csv("yellow_tripdata_2018-02.csv")
-taxi_march <- read.csv("yellow_tripdata_2018-03.csv")
-taxi_april <- read.csv ("yellow_tripdata_2018-04.csv")
-taxi_may <- read.csv("yellow_tripdata_2018-05.csv")
-taxi_june <- read.csv("yellow_tripdata_2018-06.csv")
-
+##Training Data:
 
 ##date
 taxi_jan$Pick_up_Date <- as.Date(taxi_jan$tpep_pickup_datetime)
@@ -162,8 +151,6 @@ taxi_march$Pick_up_Date <- as.Date(taxi_march$tpep_pickup_datetime)
 taxi_april$Pick_up_Date <- as.Date(taxi_april$tpep_pickup_datetime)
 taxi_may$Pick_up_Date <- as.Date(taxi_may$tpep_pickup_datetime)
 taxi_june$Pick_up_Date <- as.Date(taxi_june$tpep_pickup_datetime)
-
-
 
 ##select only one month
 taxi_jan <- taxi_jan %>% filter(Pick_up_Date <= "2018-01-31")%>% filter(Pick_up_Date >= "2018-01-01")
@@ -236,8 +223,7 @@ daily_data <- train.data %>% group_by(Day) %>% summarise(sum(N_Taxis))
 plot(hourly_data$Pick_up_Hour, hourly_data$`sum(N_Taxis)`)
 ggplot(daily_data, aes(Day,`sum(N_Taxis)`))+geom_point()
 
-##Test data
-taxi_test <- read.csv("yellow_tripdata_2017-01.csv")
+##Testing Data:
 
 taxi_test$Pick_up_Date <- as.Date(taxi_test$tpep_pickup_datetime)
 taxi_test <- taxi_test %>% filter(Pick_up_Date <= "2017-01-31")%>% filter(Pick_up_Date >= "2017-01-01")
