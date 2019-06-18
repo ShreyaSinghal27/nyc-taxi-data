@@ -16,3 +16,5 @@ First of all, we decided to examine the relationship between the number of taxis
 
 Thereafter, for predicting which trips would result in a tip for the driver, we used a Naive Bayes model with a binary variable for whether a tip of twenty percent or more was given as the response variable and ‘trip distance’, ‘rate code’, ‘pick-up location’, ‘pick-up hour’, ‘day’, and ‘month’ as our predictors. All of our predictors represented information that would be readily available to the taxi driver before the start of the trip. The code for this analysis can be found in 'analysis'. 
 
+For a complete explanation of the method, analysis, and results, one can navigate to 'report.pdf'. 
+
